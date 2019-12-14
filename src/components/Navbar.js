@@ -11,10 +11,47 @@ const Navbar = () => {
   const toggleNav = () => {
     setNav(isOpen => !isOpen)
   }
+
   return (
-    <div>
-      <h1>i'm navbar</h1>
-    </div>
+    <nav className={styles.navbar}>
+      <div className={styles.navCenter}>
+        <div className={styles.navHeader}>
+          <img src={logo} alt="backroads-logo" />
+          <button type="button" className={styles.logoBtn} onClick={toggleNav}>
+            <FaAlignRight className={styles.logoIcon} />
+          </button>
+        </div>
+        <ul
+          className={
+            isOpen
+              ? `${styles.navLinks} ${styles.showNav}`
+              : `${styles.navLinks}`
+          }
+        >
+          {links.map((item, index) => {
+            return (
+              <li key={index}>
+                <Link to={item.path}>{item.text}</Link>
+              </li>
+            )
+          })}
+        </ul>
+        <div className={styles.navSocialLinks}>
+          {socialIcons.map((item, index) => {
+            return (
+              <a
+                key={index}
+                href={item.url}
+                target="_blank"
+                rel="noopeneer noreferrer"
+              >
+                {item.icon}
+              </a>
+            )
+          })}
+        </div>
+      </div>
+    </nav>
   )
 }
 
