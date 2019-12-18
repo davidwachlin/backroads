@@ -12,6 +12,5 @@ export default () => (
         <Link to="/tours" className="btn-white">explore tours</Link>
       </Banner>
     </SimpleHero>
-    l
   </Layout>
 )
